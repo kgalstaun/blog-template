@@ -26,7 +26,7 @@ Hygraph
 State
 
 1. In QueryState.js, the state of ongoing queries is managed. With the help of Vue 3 only a few lines are needed to build up a state management system - no need for a big outside package! This great blog post explains it very well: https://vueschool.io/articles/vuejs-tutorials/state-management-with-composition-api/. 
-2. For now, mostly for examplary uses, it is  used by the FooterComponent. If a new content is being fetched, it is not shown on the page. Of course a similar pattern can be implemented for every other state if needed.
+2. For now it is only used by the FooterComponent. If a new content is being fetched, it is not shown on the page. Of course a similar pattern can be implemented for every other state if needed.
 
 SCSS & Tailwind
 
