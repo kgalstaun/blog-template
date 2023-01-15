@@ -1,5 +1,5 @@
 const messages = {
-  error: "Oops... something went wrong. Please try again later.",
+  error: "Excuses, er ging iets fout... probeer later opnieuw.",
 };
 
 export default messages;

@@ -1,38 +1,20 @@
 <template>
-  <nav>
-    <router-link :to="link"
-      ><span class="cursor-pointer">{{ title }}</span></router-link
-    >
+  <nav class="flex flex-row">
+    <template v-for="title in titles" :key="title">
+      <router-link :to="'/' + title" class="cursor-pointer text-3xl">{{
+        title
+      }}</router-link>
+    </template>
   </nav>
 </template>
 
 <script>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-
 export default {
   setup() {
-    const route = useRoute();
-
-    const title = computed(() => {
-      return route.path === "/contact" ? "home" : "contact";
-    });
-
-    const link = computed(() => {
-      return route.path === "/contact" ? "/" : "/contact";
-    });
-
+    const titles = ["werk"];
     return {
-      link,
-      title,
+      titles,
     };
   },
 };
 </script>
-
-<style lang="scss" scoped>
-nav span {
-  font-size: 2rem;
-  text-transform: capitalize;
-}
-</style>

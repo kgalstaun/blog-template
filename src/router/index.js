@@ -1,16 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import PostComponent from "@/views/PostComponent.vue";
+import ContentComponent from "@/components/ContentComponent.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: PostComponent,
-  },
-  {
-    path: "/Contact",
-    name: "Contact",
-    component: PostComponent,
+    name: "home",
+    component: ContentComponent,
   },
   {
     path: "/:pathMatch(.*)*",
