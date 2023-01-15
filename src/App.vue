@@ -1,21 +1,17 @@
 <template>
-  <main class="max-w-screen-md mx-auto px-sm">
+  <main class="max-w-screen-md mx-auto px-md">
     <div
       v-if="loaded && !error"
-      class="pt-xl min-h-screen flex flex-col items-center"
+      class="pt-xl min-h-screen flex flex-col items-left"
     >
-      <HeaderComponent class="mb-md">{{ headerText }}</HeaderComponent>
-      <NavComponent class="mb-md" />
-      <MainComponent class="pt-md" />
-      <FooterComponent class="mt-auto pt-lg pb-xl">{{
+      <HeaderComponent class="mb-lg">{{ headerText }}</HeaderComponent>
+      <NavComponent class="mb-lg" />
+      <ContentComponent />
+      <FooterComponent class="mt-auto mt-xl mb-lg">{{
         footerText
       }}</FooterComponent>
     </div>
-    <div v-else>
-      <Message class="pt-xl text-7xl" :type="'error'">{{
-        getConstant("messages", "error")
-      }}</Message>
-    </div>
+    <ErrorComponent v-if="error"></ErrorComponent>
   </main>
 </template>
 
@@ -25,18 +21,18 @@ import QueryService from "@/service/QueryService";
 import MetaQuery from "@/queries/meta";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import NavComponent from "@/components/NavComponent.vue";
-import MainComponent from "@/components/MainComponent.vue";
+import ContentComponent from "@/components/ContentComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import Message from "@/components/MessageComponent";
+import ErrorComponent from "@/components/ErrorComponent";
 import ConstantService from "@/service/ConstantService";
 
 export default {
   components: {
     HeaderComponent,
     NavComponent,
-    MainComponent,
+    ContentComponent,
     FooterComponent,
-    Message,
+    ErrorComponent,
   },
   setup() {
     onMounted(() => {
