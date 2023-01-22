@@ -4,7 +4,12 @@ import ContentComponent from "@/components/ContentComponent.vue";
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "werk",
+    component: ContentComponent,
+  },
+  {
+    path: "/werk/:id",
+    name: "werkItem",
     component: ContentComponent,
   },
   {

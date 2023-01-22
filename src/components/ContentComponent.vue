@@ -1,15 +1,13 @@
 <template>
   <main class="w-full flex items-start">
-    <template v-if="data">
-      <transition name="fade" mode="out-in">
-        <div
-          name="contentWrapper"
-          v-if="data.content && data.content.html"
-          :key="data"
-          v-html="data.content.html"
-        ></div>
-      </transition>
-    </template>
+    <transition name="fade" mode="out-in">
+      <div
+        v-if="getContent && getContent.html"
+        name="contentWrapper"
+        :key="getContent"
+        v-html="getContent.html"
+      ></div>
+    </transition>
     <ErrorComponent v-if="error"></ErrorComponent>
   </main>
 </template>
@@ -17,6 +15,7 @@
 <script>
 import { ref, watch, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { setContent, getContent } from "@/state/contentState";
 import QueryService from "@/service/QueryService";
 import DataQuery from "@/queries/data";
 import ErrorComponent from "@/components/ErrorComponent";
@@ -26,11 +25,10 @@ export default {
   setup() {
     const route = useRoute();
     const router = useRouter();
-    let data = ref(null);
     let error = ref(false);
 
     watch(route, () => {
-      data.value = " ";
+      setContent(null);
       fetchData();
     });
 
@@ -45,7 +43,7 @@ export default {
       QueryService.fetch(DataQuery, { title: queryTitle })
         .then((response) => {
           if (response.dataItems.length > 0) {
-            data.value = response.dataItems[0];
+            setContent(response.dataItems[0]);
             if (error.value) {
               error.value = false;
             }
@@ -69,7 +67,7 @@ export default {
     }
 
     return {
-      data,
+      getContent,
       error,
     };
   },
