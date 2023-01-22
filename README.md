@@ -30,8 +30,8 @@ A template for a blog, using Vue 3, Tailwind, Hypgraph and Firebase. The app is 
 
 ## State management
 
-1. In QueryState.js, the state of ongoing queries is managed. With Vue 3's "composition API" only a few lines are needed to build up a state management system, no need for a big outside package! This blog post explains it very well: https://vueschool.io/articles/vuejs-tutorials/state-management-with-composition-api/. 
-2. For now the state is only tracked by the FooterComponent. If content is being fetched, the footer will not show on the page. This way we prevent the footer from shooting upwards when there is no content.
+1. In contentState.js and metaDataState.js the state of fetched data is managed. With Vue 3's "composition API" only a few lines are needed to build up a state management system, no need for a big outside package. This blog post explains it very well: https://vueschool.io/articles/vuejs-tutorials/state-management-with-composition-api/. 
+2. For now the state of the metaData is stored  after the first fetch, as well as the (page) contenta after it is fetched. The respective components can import the getter functions and subscribe thereby subscribe the computed() functions which contain the data.
 
 ## SCSS & Tailwind
 
