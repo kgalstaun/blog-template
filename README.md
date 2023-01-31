@@ -7,12 +7,14 @@ A template for a blog, using Vue 3, Tailwind, Hypgraph and Firebase. The app is 
 3. Hygraph: CMS which is amazing for smaller projects as it is free to use, has a simple and clean interface. Also it is queried with GraphQL, which is a big plus. 
 4. Firebase: the place where we host our project. It is free and takes only a few minutes to setup.
 
-# Run
+
+# Explanation of techniques and design patterns 
+
+## Run
 
 1. npm install
 2. npm run serve
 
-# Explanation of techniques and design patterns 
 
 ## App.vue and GraphQL queries
 
