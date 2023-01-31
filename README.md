@@ -18,8 +18,8 @@ A template for a blog, using Vue 3, Tailwind, Hypgraph and Firebase. The app is 
 
 1. App.vue is the main wrapper component containing all main elements of the page, divided in subcomponents (HeaderComponent, NavComponent, ContentComponent, etc.)
 2. App.vue calls the fetchData() function to make the first GraphQL API query to Hygraph for retrieving the meta-info of the site (headerText, footerText).
-3. If that call succeeds the subcomponents are loaded, one of which is the ContentComponent. This component makes its own GraphQL query to retrieve the content shown on the page (page meaning, the part between the header and footer).
-4. ContentComponent uses the route (and route params) to provides the query with a parameter. It expects to retrieve html, which is rendered on the page using the 'v-html' directive.
+3. If that call succeeds the subcomponents are loaded, one of which is the ContentComponent. This component makes its own GraphQL query to retrieve the content shown on the page (the part between the header and footer).
+4. ContentComponent uses the route (and route params) to provides the query with a parameter. It expects to retrieve html, which is rendered on the page using the 'v-html' directive (https://vuejs.org/api/built-in-directives.html#v-html). 
 
 ## Hygraph
 
